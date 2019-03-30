@@ -1,0 +1,89 @@
+﻿@model HELPERS.Models.Preguntas
+@{
+                /**/
+
+                ViewBag.Title = "Formulario";
+}
+<style>
+</style>
+
+
+
+
+<center>
+    <h1>Formulario para llenar</h1>
+    <h3>
+        <i>
+            Ingrese sus datos
+        </i>
+    </h3>
+</center>
+
+
+@using (Html.BeginForm("Datos", "Preguntas", FormMethod.Post))
+{
+    <center>
+        <div>
+            @Html.LabelFor(Models => Model.Cedula)
+            @Html.EditorFor(Models => Model.Cedula)
+        </div>
+
+        <div>
+            @Html.LabelFor(Models => Model.Nombre)
+            @Html.EditorFor(Models => Model.Nombre)
+        </div>
+
+        <div>
+            @Html.LabelFor(Models => Model.Apellido)
+            @Html.EditorFor(Models => Model.Apellido)
+        </div>
+
+        <div>
+            @Html.LabelFor(Models => Model.Edad)
+            @Html.EditorFor(Models => Model.Edad)
+        </div>
+
+        <div>
+            @Html.LabelFor(Models => Model.Correo)
+            @Html.EditorFor(Models => Model.Correo)
+        </div>
+
+        <div>
+            @Html.LabelFor(Models => Model.Telefono)
+            @Html.EditorFor(Models => Model.Telefono)
+        </div>
+
+        <div>
+            @Html.LabelFor(Models => Model.Genero)
+            @Html.DropDownListFor(Models =>Models.Genero, new List<SelectListItem>
+            {new SelectListItem { Text="Masculino", Value="Masculino"},
+             new SelectListItem { Text="Femenino", Value="Femenino" }}, "Please Select")
+        </div>
+
+        <div>
+            @Html.LabelFor(Models => Model.Estado)<br />
+            Casado
+            @Html.RadioButtonFor(Models => Models.Estado, "Casado")<br />
+            Soltero
+            @Html.RadioButtonFor(Models => Models.Estado, "Soltero")<br />
+            Viudo
+            @Html.RadioButtonFor(Models => Models.Estado, "Viudo")<br />
+            Union Libre
+            @Html.RadioButtonFor(Models => Models.Estado, "Union Libre")
+        </div>
+
+        <div>
+            @Html.LabelFor(Models => Model.Hobbys)<br />
+            Leer
+            @Html.CheckBoxFor(Models => Models.Hobbys, "Leer")<br />
+            Dormir
+            @Html.CheckBoxFor(Models => Models.Hobbys, "Dormir")<br />
+            Escuchar Musica
+            @Html.CheckBoxFor(Models => Models.Hobbys, "Escuchar Musica")<br />
+            Ver peliculas
+            @Html.CheckBoxFor(Models => Models.Hobbys, "Ver peliculas")
+        </div>
+
+        <input type="submit" value="Enviar" />
+    </center>
+}
